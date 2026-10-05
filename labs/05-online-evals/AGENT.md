@@ -98,9 +98,11 @@ def answer(
 
 **Direct the attendee** through these UI steps:
 
-**First, connect an LLM:**
+**First, connect an LLM** — use the same provider the attendee chose in Lab 0 (if you've lost track, ask: "Are you using OpenAI or Gemini?"):
 1. Go to **Settings** → **LLM Connections** → **Add new LLM connection**
-2. Select **OpenAI**, enter their OpenAI API key → **Save**
+2. Configure it for their provider → **Save**:
+   - **OpenAI**: select **OpenAI**, enter their OpenAI API key
+   - **Gemini**: select **Google AI Studio**, enter their Gemini API key, and under the custom model names add the value of `APP_MODEL` from their `.env` (e.g. `gemini-3.5-flash-lite`). Langfuse's built-in Google AI Studio model list is older, so newer Gemini models must be added as custom names.
 
 **Create the evaluator:**
 1. Go to **Evaluation** → **LLM-as-a-Judge** → **Create Evaluator**

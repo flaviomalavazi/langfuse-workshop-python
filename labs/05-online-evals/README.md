@@ -133,13 +133,15 @@ Note that you can also filter observations by score value:
 
 ### Task 5.2 — Set up a no-code LLM-as-a-judge evaluator in the UI
 
-Langfuse has **built-in evaluators** — you configure them once in the UI and they run automatically on every matching trace, with no code needed. This is the fastest way to get a quality signal on all your traffic. But first you need to setup LLM connection with your favorite LLM api to make it work. In this lab we are using OpenAI, you may use any other LLM API.
+Langfuse has **built-in evaluators** — you configure them once in the UI and they run automatically on every matching trace, with no code needed. This is the fastest way to get a quality signal on all your traffic. But first you need to setup LLM connection with your favorite LLM api to make it work. Use the same provider you chose in Lab 0 (OpenAI or Google Gemini) — any other LLM API Langfuse supports works too.
 
 **Prerequisites**: Connect an LLM to your Langfuse project first:
 1. Go to **Settings** → **LLM Connections** → **Add new LLM connection**
 ![LLM Connections settings page with OpenAI connection configured](./assets/langfuse-llm-connections.png)
 
-2. Select **OpenAI**, enter your OpenAI API key, click **Save**
+2. Configure the connection for your provider, then click **Save** (the screenshot below shows OpenAI):
+   - **OpenAI**: select **OpenAI** and enter your OpenAI API key.
+   - **Google Gemini**: select **Google AI Studio**, enter your Gemini API key, and under the custom model names add the value of `APP_MODEL` from your `.env` (e.g. `gemini-3.5-flash-lite`). Langfuse's built-in Google AI Studio model list is older, so newer Gemini models must be added as custom names.
 ![LLM Connections settings page with OpenAI connection configured](./assets/langfuse-api-copy.png)
 
 

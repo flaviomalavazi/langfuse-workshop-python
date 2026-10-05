@@ -103,7 +103,9 @@ Notice what the OpenAI wrapper added automatically: the **model name**, **token 
 > - **LangChain / LangGraph**: pass `CallbackHandler` from `langfuse.callback`
 > - **LlamaIndex**: register the Langfuse handler once at startup
 >
-> The full list is at [langfuse.com/integrations](https://langfuse.com/integrations). For this workshop we use OpenAI directly, but the observability patterns you're learning apply identically across all of them.
+> The full list is at [langfuse.com/integrations](https://langfuse.com/integrations). This workshop uses the OpenAI SDK for both OpenAI and Gemini — Gemini is reached through its OpenAI-compatible endpoint, the same `base_url` trick shown for Anthropic above, set via `OPENAI_BASE_URL` in your `.env`. The observability patterns you're learning apply identically across all of them.
+>
+> **Using Gemini and don't see a cost?** Token counts and the model name should still appear. Langfuse estimates cost by matching the model name against its model definitions, and a newer Gemini model may not have one yet. You can add a model definition under **Settings → Models** with prices from Google's pricing page.
 
 ---
 

@@ -61,6 +61,8 @@ def call_llm(messages: list[dict]) -> str:
 
 **✋ Check in**: "Do you see token counts on the generation? What model and cost does it show?"
 
+**If the attendee is using Gemini** and the cost is empty or `$0` while token counts are present: that is expected, not a bug. Langfuse estimates cost by matching the model name against its model definitions, and a newer Gemini model may not have one yet. Token counts and model name are what matter for this step — acknowledge them as success. Optionally, they can add a model definition under the project's **Settings → Models** with prices from Google's pricing page to see cost.
+
 ---
 
 ## Step 2 — Add session tracking
