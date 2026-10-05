@@ -50,7 +50,7 @@ You'll instrument a production-style customer support chatbot step by step, lear
 
 The app is a customer support assistant for a fictional SaaS product called **DataStream**. It:
 - Retrieves relevant documentation for each question (simulated RAG)
-- Generates answers using OpenAI
+- Generates answers using OpenAI or Google Gemini (your choice)
 - Supports multi-turn conversations
 
 The baseline has **no Langfuse integration** — you add it lab by lab.
@@ -60,7 +60,7 @@ The baseline has **no Langfuse integration** — you add it lab by lab.
 ## Prerequisites
 
 - [uv](https://docs.astral.sh/uv/) (installs Python 3.14 automatically)
-- An OpenAI API key
+- An LLM API key — either OpenAI or Google Gemini
 - A Langfuse account (free at [cloud.langfuse.com](https://cloud.langfuse.com), or run locally with Docker)
 
 ---
@@ -85,7 +85,7 @@ It does **not** install anything globally, modify your system, or send any data 
 
 ```bash
 # 3. Fill in your API keys
-# Edit .env with your LANGFUSE_* and OPENAI_API_KEY values
+# Edit .env with your LANGFUSE_* values and the OpenAI or Gemini block (see .env.example)
 
 # 4. Activate the virtual environment
 source .venv/bin/activate

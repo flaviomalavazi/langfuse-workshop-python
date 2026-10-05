@@ -16,9 +16,12 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ---
 
-## Step 2: OpenAI API Key
+## Step 2: An LLM API Key (OpenAI or Google Gemini)
 
-If you don't have one, create an account at [platform.openai.com](https://platform.openai.com) and generate an API key.
+The workshop works with either provider — you only need one key.
+
+- **OpenAI**: create an account at [platform.openai.com](https://platform.openai.com) and generate an API key.
+- **Google Gemini**: sign in at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) and create an API key.
 
 ---
 
@@ -42,13 +45,26 @@ It does **not** install anything globally, modify your system, or send any data 
 
 ---
 
-## Step 4: Add your OpenAI key to `.env`
+## Step 4: Add your LLM key to `.env`
 
-Open `.env` and fill in your OpenAI key. Leave the Langfuse fields for now — you'll get those in Lab 1.
+Open `.env` and fill in the block for the provider you chose. Leave the Langfuse fields for now — you'll get those in Lab 1. Keep only one `OPENAI_API_KEY` line active.
+
+**OpenAI:**
 
 ```env
 OPENAI_API_KEY=sk-...
+APP_MODEL=gpt-4o-mini
 ```
+
+**Google Gemini:**
+
+```env
+OPENAI_API_KEY=<your Gemini API key>
+OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
+APP_MODEL=gemini-3.5-flash-lite
+```
+
+> **Why is a Gemini key in `OPENAI_API_KEY`?** The app calls the LLM through the OpenAI SDK. Gemini offers an OpenAI-compatible endpoint, so `OPENAI_BASE_URL` redirects the same SDK to Google and `OPENAI_API_KEY` is the variable the SDK reads. All the lab code stays the same for both providers.
 
 ---
 

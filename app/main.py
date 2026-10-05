@@ -55,7 +55,7 @@ def main():
                 response = answer(question, history)
             except openai.AuthenticationError:
                 console.print(Panel.fit(
-                    "[bold red]Invalid OpenAI API key[/bold red]\n"
+                    "[bold red]Invalid LLM API key (OpenAI or Gemini)[/bold red]\n"
                     "[dim]Check the OPENAI_API_KEY value in your .env file, then restart the app.[/dim]\n\n"
                     "Press [bold]Ctrl+C[/bold] to exit.",
                     border_style="red"

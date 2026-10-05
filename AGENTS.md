@@ -13,13 +13,13 @@ When the attendee starts the session, open with this before doing anything else:
 > Here's how we'll work: I'll make all the code changes for you. Your job is to run the app in your terminal and confirm what you see in Langfuse at each step — that's where the learning happens. I'll pause after every change and ask you a specific question before we move on.
 >
 > Before we start, make sure you have two things ready:
-> 1. Your **OpenAI API key** — you'll need it in Lab 0 to run the baseline app
+> 1. An **LLM API key** — either **OpenAI** or **Google Gemini**, whichever you have. You'll need it in Lab 0 to run the baseline app (I'll ask which one when we get there)
 > 2. A terminal open and navigated to the root of the workshop repo:
 >    ```
 >    cd path/to/langfuse-workshop
 >    ```
 >
-> Let me know when you're at the repo root and have your OpenAI key handy — then we'll kick off Lab 0."
+> Let me know when you're at the repo root and have your OpenAI or Gemini key handy — then we'll kick off Lab 0."
 
 Wait for the attendee to confirm both before proceeding to Lab 0.
 
@@ -183,6 +183,7 @@ langfuse.flush()
 - Python 3.14, managed by `uv`, virtual environment at `.venv/`
 - Dependencies: `openai`, `langfuse`, `python-dotenv`, `rich` (defined in `pyproject.toml`)
 - Credentials in `.env`: `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`, `OPENAI_API_KEY`
+- LLM provider: OpenAI **or** Google Gemini, chosen by the attendee in Lab 0. Both use the OpenAI SDK — for Gemini, `.env` also sets `OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/` and `APP_MODEL=gemini-3.5-flash-lite`, and the Gemini key goes in `OPENAI_API_KEY`. Lab code is identical for both providers. Remember which provider they chose — Lab 5 needs it for the Langfuse LLM connection.
 - Run the app: `uv run gradio app/web.py` — then open http://localhost:7860
 - Activate venv: `source .venv/bin/activate`
 

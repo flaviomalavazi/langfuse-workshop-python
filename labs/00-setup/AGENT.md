@@ -22,15 +22,32 @@ Show the attendee the output and confirm there are no errors.
 
 ---
 
-## Step 2 — Add the OpenAI key to `.env`
+## Step 2 — Ask which LLM key they have, then configure `.env`
 
-Ask the attendee for their OpenAI API key and write it into `.env`:
+The workshop works with either **OpenAI** or **Google Gemini**. Ask the attendee:
+
+> "Which LLM API key do you have — **OpenAI** or **Google Gemini**?"
+
+Wait for their answer. If they have neither, point them to https://platform.openai.com/api-keys (OpenAI) or https://aistudio.google.com/apikey (Gemini) to create one. Remember their choice — Lab 5 asks again when connecting an LLM inside Langfuse.
+
+Then ask them to paste the key and write the matching block into `.env`, replacing the placeholder `OPENAI_API_KEY` line from `.env.example` (never leave two `OPENAI_API_KEY` lines active).
+
+**OpenAI:**
 
 ```env
 OPENAI_API_KEY=sk-...
+APP_MODEL=gpt-4o-mini
 ```
 
-Ask the attendee to visit https://platform.openai.com/api-keys to generate api keys.
+**Google Gemini:**
+
+```env
+OPENAI_API_KEY=<their Gemini API key>
+OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
+APP_MODEL=gemini-3.5-flash-lite
+```
+
+Explain the Gemini block: the app calls the LLM through the OpenAI SDK. Gemini exposes an OpenAI-compatible endpoint, so setting `OPENAI_BASE_URL` redirects the same SDK to Google — the key goes in `OPENAI_API_KEY` because that is the variable the SDK reads. No lab code changes between providers.
 
 Leave the `LANGFUSE_*` fields blank for now — those are covered in Lab 1.
 
